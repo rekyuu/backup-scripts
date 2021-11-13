@@ -27,10 +27,10 @@ function backup_folder {
     FILEPATH=$FOLDER/$FILENAME
 
     cd $SOURCE_FOLDER &&
-    tar zchf $FILEPATH . &&
+    sudo tar zchf $FILEPATH . &&
     aws s3 mv $FILEPATH s3://$S3_SITE_BUCKET/$NAME/$FILENAME
 
-    rm $FILEPATH 2> /dev/null
+    sudo rm $FILEPATH 2> /dev/null
 }
 
 function get_backup_file_name {
