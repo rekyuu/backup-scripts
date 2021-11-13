@@ -10,7 +10,7 @@ for database in $DATABASES; do
     database=$(tr -dc '[[:print:]]' <<< "$database")
     
     FOLDER=/tmp
-    FILENAME=${database}_backup_$(date -u +"%y%m%d%H%M%S").dump
+    FILENAME=$(get_backup_file_name ${database}).dump
     FILEPATH=$FOLDER/$FILENAME
 
     docker exec --user postgres $CONTAINER_ID pg_dump -Fc $database > $FILEPATH &&
