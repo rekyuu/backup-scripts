@@ -34,5 +34,5 @@ function backup_folder {
 }
 
 function get_backup_file_name {
-    return $1_backup_$(date -u +"%y%m%d%H%M%S")
+    echo $1_backup_$(date -u +"%y%m%d%H%M%S")
 }
