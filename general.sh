@@ -7,7 +7,7 @@ function backup_db_file {
     NAME=$2
 
     FOLDER=/tmp
-    FILENAME=$(get_backup_file_name $NAME).tar.gz
+    FILENAME=$(get_backup_file_name $NAME)
     FILEPATH=$FOLDER/$FILENAME
 
     cp $SOURCE_FILE $FILEPATH &&
