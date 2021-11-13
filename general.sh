@@ -3,6 +3,8 @@
 . ~/.local/bin/backup-scripts/settings.sh
 
 function backup_db_file {
+    echo "Backing up ${1}..."
+
     SOURCE_FILE=$1
     NAME=$2
     EXTENSION="${SOURCE_FILE##*.}"
@@ -20,6 +22,8 @@ function backup_db_file {
 }
 
 function backup_folder {
+    echo "Backing up ${1}..."
+    
     SOURCE_FOLDER=$1
     NAME=$2
 
