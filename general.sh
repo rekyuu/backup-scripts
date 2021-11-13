@@ -29,7 +29,7 @@ function backup_folder {
 
     cd $SOURCE_FOLDER &&
     sudo tar zchf $FILEPATH . &&
-    aws s3 mv $FILEPATH s3://$S3_SITE_BUCKET/$NAME/$FILENAME
+    aws s3 cp $FILEPATH s3://$S3_SITE_BUCKET/$NAME/$FILENAME
 
     sudo rm $FILEPATH 2> /dev/null
 }

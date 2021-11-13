@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ~/.local/bin/backup-scripts/bitwarden_backup.sh
 ~/.local/bin/backup-scripts/grafana_backup.sh 
 ~/.local/bin/backup-scripts/homura_backup.sh 
