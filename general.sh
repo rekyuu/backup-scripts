@@ -5,9 +5,10 @@
 function backup_db_file {
     SOURCE_FILE=$1
     NAME=$2
+    EXTENSION="${SOURCE_FILE##*.}"
 
     FOLDER=/tmp
-    FILENAME=$(get_backup_file_name $NAME)
+    FILENAME=$(get_backup_file_name $NAME).$EXTENSION
     FILEPATH=$FOLDER/$FILENAME
 
     cp $SOURCE_FILE $FILEPATH &&
