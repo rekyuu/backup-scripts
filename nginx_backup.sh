@@ -2,8 +2,15 @@
 
 . ~/.local/bin/backup-scripts/general.sh
 
-sudo cp -R /srv/nginx-proxy-manager /tmp/nginx-proxy-manager-temp
+SOURCE=/srv/nginx-proxy-manager
+DESTINATION=/tmp/nginx-proxy-manager-temp/nginx-proxy-manager
 
-backup_folder /tmp/nginx-proxy-manager-temp nginx-proxy-manager
+mkdir -p $DESTINATION
 
-sudo rm -rf /tmp/nginx-proxy-manager-temp
+sudo cp -R $SOURCE $DESTINATION
+
+cd $DESTINATION
+
+backup_folder $DESTINATION nginx-proxy-manager
+
+sudo rm -rf $DESTINATION
