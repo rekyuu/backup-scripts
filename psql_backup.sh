@@ -15,7 +15,7 @@ for database in $DATABASES; do
 
     docker exec --user postgres $CONTAINER_ID pg_dump -Fc $database > $FILEPATH &&
     gzip $FILEPATH &&
-    aws s3 mv $FILEPATH.gz s3://$S3_DB_BUCKET/$database/$FILENAME.gz
+    aws s3 mv $FILEPATH.gz s3://$S3_DB_BUCKET/$database/$FILENAME.gz --only-show-errors
 
     rm $FILEPATH 2> /dev/null
     rm $FILEPATH.gz 2> /dev/null

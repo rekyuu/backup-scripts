@@ -28,6 +28,6 @@ do
     CURRENT_STATUS=$(get_current_backup_status)
 done
 
-aws s3 mv $FILEPATH s3://$S3_DB_BUCKET/teamcity/$FILENAME
+aws s3 mv $FILEPATH s3://$S3_DB_BUCKET/teamcity/$FILENAME --only-show-errors
 
 rm $FILEPATH 2> /dev/null

@@ -15,7 +15,7 @@ function backup_db_file {
 
     cp $SOURCE_FILE $FILEPATH &&
     gzip $FILEPATH &&
-    aws s3 mv $FILEPATH.gz s3://$S3_DB_BUCKET/$NAME/$FILENAME.gz
+    aws s3 mv $FILEPATH.gz s3://$S3_DB_BUCKET/$NAME/$FILENAME.gz --only-show-errors
 
     rm $FILEPATH 2> /dev/null
     rm $FILEPATH.gz 2> /dev/null
@@ -33,7 +33,7 @@ function backup_folder {
 
     cd $SOURCE_FOLDER &&
     sudo tar zchf $FILEPATH . &&
-    aws s3 cp $FILEPATH s3://$S3_SITE_BUCKET/$NAME/$FILENAME
+    aws s3 cp $FILEPATH s3://$S3_SITE_BUCKET/$NAME/$FILENAME --only-show-errors
 
     sudo rm $FILEPATH 2> /dev/null
 }
